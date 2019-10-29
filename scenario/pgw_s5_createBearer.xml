@@ -65,7 +65,7 @@
 	</recv> 
 	
 	<!-- Receive delete session request from SGW -->
-	<recv respose="dsreq">
+	<recv request="dsreq">
 	</recv>
 
 	<send response="dsrsp">
