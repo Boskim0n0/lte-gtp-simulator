@@ -11,6 +11,16 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wall -Wextra \
     -Wcast-qual -Wshadow -Wwrite-strings -Wno-unused-parameter"
 )
 
+OPTION(DEFINE_DEBUG
+  "Build the project using debugging code"
+  OFF)
+IF(DEFINE_DEBUG)
+  MESSAGE("Adding Debug flag...")
+  ADD_DEFINITIONS(-DDEBUG)
+  SET(CMAKE_BUILD_TYPE Debug)
+  MESSAGE("Build type is " ${CMAKE_BUILD_TYPE})
+ENDIF(DEFINE_DEBUG)
+
 ExternalProject_Add(cxxopts
     PREFIX ${CMAKE_CURRENT_BINARY_DIR}/cxxopts
     SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/../3rdparty/cxxopts
