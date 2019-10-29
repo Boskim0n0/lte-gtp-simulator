@@ -252,7 +252,7 @@ RETVAL UeSession::handleOutReqMsg(GtpMsg *gtpMsg)
     pNwData->connId = 0;
     pNwData->peerEp = m_peerEp;
 
-    LOG_DEBUG("Sending GTPC Message [%s]", gtpGetMsgName(msgType));
+    LOG_DEBUG("Sending GTPC Message [%s]", gtpGetMsgName(gtpMsg->type()));
     Buffer *buf = new Buffer(pNwData->buf);
     sendMsg(pNwData->connId, &pNwData->peerEp, buf);
     currProc->m_initial->m_numSnd++;
@@ -326,7 +326,7 @@ RETVAL UeSession::handleOutRspMsg(GtpMsg *gtpMsg)
     pNwData->connId = m_currProcCache.connId;
     pNwData->peerEp = pPdn->pCTun->m_peerEp;
 
-    LOG_DEBUG("Sending GTPC Message [%s]", gtpGetMsgName(msgType));
+    LOG_DEBUG("Sending GTPC Message [%s]", gtpGetMsgName(gtpMsg->type()));
     Buffer *buf = new Buffer(pNwData->buf);
     sendMsg(pNwData->connId, &pNwData->peerEp, buf);
     currProc->m_trigMsg->m_numSnd++;
