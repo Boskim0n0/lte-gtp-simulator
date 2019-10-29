@@ -56,7 +56,7 @@ S8 g_gtpMsgName[GTPC_MSG_TYPE_MAX][GTP_MSG_NAME_LEN] =
    "Trace Sessn Deactivation",
    "Stop Paging Ind",
    "", "", "", "", "", "", "", "", "", "", "", "", "", "", "", "",
-   "", "", "", "", "", "",
+   "", "", "", "", "",
    "Create Bearer Req",
    "Create Bearer Rsp",
    "Update Bearer Req",
