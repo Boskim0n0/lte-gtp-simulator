@@ -128,7 +128,7 @@ Job* XmlParser::procSend(xml_node *pSend)
 
    try
    {
-      LOG_DEBUG("Processing action <%s>", pRecv->name());
+      LOG_DEBUG("Processing action <%s>", pSend->name());
       const S8 *pMsgName = NULL;
 
       pMsgName = pSend->attribute("request").value();
