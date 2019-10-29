@@ -128,6 +128,7 @@ Job* XmlParser::procSend(xml_node *pSend)
 
    try
    {
+      LOG_DEBUG("Processing action <%s>", pRecv->name());
       const S8 *pMsgName = NULL;
 
       pMsgName = pSend->attribute("request").value();
@@ -187,13 +188,14 @@ Job* XmlParser::procRecv(xml_node *pRecv)
 
    try
    {
-      LOG_DEBUG("Processing <%s>", pRecv->name());
+      LOG_DEBUG("Processing action <%s>", pRecv->name());
       const S8 *pMsgName = NULL;
       pMsgName = pRecv->attribute("request").value();
       if (STRLEN(pMsgName) == 0)
       {
          pMsgName = pRecv->attribute("response").value();
-      }
+      }      
+      LOG_DEBUG("Processing <%s>", pMsgName);
 
       for (xml_node node = pRecv->first_child(); node;\
             node = node.next_sibling())
